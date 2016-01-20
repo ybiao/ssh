@@ -17,4 +17,6 @@
 	<bean id="userDao" class="com.zkwb.dao.impl.UserDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
+	
+	<bean id="downloadAction" class="com.zkwb.action.DownAction"></bean>
 </beans>

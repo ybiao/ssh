@@ -8,4 +8,14 @@
     <constant name="struts.ui.theme" value="simple" />
 	<constant name="struts.action.extension" value="action" />
  	<include file="struts/struts-user.xml"></include>
+ 	
+ 	<package name="download" extends="struts-default">
+ 		<action name="downloadAction_*" class="downloadAction" method="{1}">
+ 			<result type="stream">
+ 				<param name="contentType">application/vnd.ms-excel</param>  
+                <param name="contentDisposition">attachment;filename="report.xls"</param>  
+                <param name="inputName">excelStream</param>
+ 			</result>
+ 		</action>
+ 	</package>
 </struts>
