@@ -1,4 +1,4 @@
-package com.zkwb.test.dao;
+package com.zkwb.test;
 
 import java.util.List;
 
