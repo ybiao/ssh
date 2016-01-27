@@ -10,7 +10,7 @@ import com.zkwb.entity.User;
 import com.zkwb.service.UserService;
 
 @Controller("userAction")
-public class UserAction extends ActionSupport implements ModelDriven<User> {
+public class UserAction extends ActionSupport{
 	private User user = new User();
 	
 	@Resource(name="userService")
@@ -19,9 +19,5 @@ public class UserAction extends ActionSupport implements ModelDriven<User> {
 	public String regist() {
 		userService.regist(user);
 		return SUCCESS;
-	}
-
-	public User getModel() {
-		return user;
 	}
 }

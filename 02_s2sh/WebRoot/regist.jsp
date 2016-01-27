@@ -26,7 +26,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>
 	<s:form action="registAction" method="post">
-   	用户名:<s:textfield name="uname" label="用户名"></s:textfield><br>
+   	用户名:<s:textfield name="user.uname" label="用户名"></s:textfield><br>
    	<s:submit label="提交" value="提交"></s:submit>
    </s:form>
   </body>

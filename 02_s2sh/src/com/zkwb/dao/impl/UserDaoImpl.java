@@ -7,7 +7,4 @@ import com.zkwb.entity.User;
 
 @Repository("userDao")
 public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
-	public String save(User user) {
-		return this.save(user);
-	}
 }

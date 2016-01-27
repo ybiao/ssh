@@ -3,18 +3,19 @@ package com.zkwb.dao.impl;
 import java.lang.reflect.ParameterizedType;
 import java.util.Collections;
 import java.util.List;
+
 import javax.annotation.Resource;
+
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.springframework.transaction.annotation.Transactional;
+import com.zkwb.dao.BaseDao;
 
-@Transactional
 @SuppressWarnings("unchecked")
-public abstract class BaseDaoImpl<T> {
+public class BaseDaoImpl<T> implements BaseDao<T>{
 	@Resource
 	private SessionFactory sessionFactory;
-	protected Class<T> clazz;
+	private Class clazz;
 
 	public BaseDaoImpl() {
 		ParameterizedType type = (ParameterizedType) this.getClass().getGenericSuperclass();
