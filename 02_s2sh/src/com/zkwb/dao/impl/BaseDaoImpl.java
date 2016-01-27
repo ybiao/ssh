@@ -53,7 +53,7 @@ public class BaseDaoImpl<T> implements BaseDao<T>{
 	}
 
 	public String save(T entity) {
-		String id = (String) getSession().save(entity);
+		String id =  getSession().save(entity) + "";
 		return id;
 	}
 

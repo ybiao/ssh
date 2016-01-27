@@ -14,6 +14,7 @@ public class UserServiceImpl implements UserService {
 	private UserDao userDao;
 
 	public void regist(User user) {
+		System.out.println(user.toString());
 		userDao.save(user);
 	}
 }

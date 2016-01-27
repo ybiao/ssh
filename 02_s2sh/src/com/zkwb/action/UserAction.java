@@ -10,12 +10,20 @@ import com.zkwb.entity.User;
 import com.zkwb.service.UserService;
 
 @Controller("userAction")
-public class UserAction extends ActionSupport{
+public class UserAction extends ActionSupport {
 	private User user = new User();
-	
-	@Resource(name="userService")
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	@Resource(name = "userService")
 	private UserService userService;
-	
+
 	public String regist() {
 		userService.regist(user);
 		return SUCCESS;
