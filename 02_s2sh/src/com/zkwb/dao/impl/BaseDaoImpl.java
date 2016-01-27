@@ -84,7 +84,7 @@ public abstract class BaseDaoImpl<T> {
 	 * pagination; }
 	 */
 
-	protected Session getSession() {
+	public Session getSession() {
 		return sessionFactory.getCurrentSession();
 	}
 }

@@ -8,7 +8,7 @@
 			http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
 			http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd">
 	
-	<bean id="userAction" class="com.zkwb.action.UserAction">
+	<!-- <bean id="userAction" class="com.zkwb.action.UserAction">
 		<property name="userService" ref="userService"></property>
 	</bean>
 	<bean id="userService" class="com.zkwb.service.impl.UserServiceImpl">
@@ -16,7 +16,7 @@
 	</bean>
 	<bean id="userDao" class="com.zkwb.dao.impl.UserDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>
-	</bean>
+	</bean> -->
 	
 	<bean id="downloadAction" class="com.zkwb.action.DownAction"></bean>
 </beans>

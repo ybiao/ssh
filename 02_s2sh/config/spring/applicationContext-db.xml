@@ -22,9 +22,9 @@
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"></property>
-		<!-- <property name="current_session_context_class">jpa</property> -->
 		<property name="hibernateProperties">
 			<props>
+				<prop key="hibernate.current_session_context_class">org.springframework.orm.hibernate4.SpringSessionContext</prop>
 				<prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
 				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
 				<prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
@@ -45,9 +45,19 @@
 		<property name="username" value="${jdbc.username}" />
 		<property name="password" value="${jdbc.password}" />
 	</bean>
-
-	<bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate">
-		<property name="sessionFactory" ref="sessionFactory"></property>
-	</bean>
-
+	
+	<!-- 配置c3p0连接池 -->
+	<!-- <bean id="dataSource1" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+    destroy-method="close">
+	    设置JDBC驱动名称
+	    <property name="driverClass" value="${jdbc.driver}" />
+	    设置JDBC连接URL
+	    <property name="jdbcUrl" value="${jdbc.url}" />
+	    设置数据库用户名
+	    <property name="user" value="${jdbc.username}" />
+	    设置数据库密码
+	    <property name="password" value="${jdbc.password}" />
+	    设置连接池初始值
+	    <property name="initialPoolSize" value="5" />
+  	</bean> -->
 </beans>

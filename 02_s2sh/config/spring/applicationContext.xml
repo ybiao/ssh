@@ -25,10 +25,19 @@
 	
 	<tx:advice transaction-manager="transactionManager" id="tx">
 		<tx:attributes>
-			<tx:method name="save*" isolation="DEFAULT" propagation="REQUIRED" read-only="false"/>
-			<tx:method name="update*" isolation="DEFAULT" propagation="REQUIRED" read-only="false"/>
-			<tx:method name="delete*" isolation="DEFAULT" propagation="REQUIRED" read-only="false"/>
-			<tx:method name="*" isolation="DEFAULT" propagation="REQUIRED" read-only="true"/>
+			<tx:method name="create*" propagation="REQUIRED" />
+		    <tx:method name="save*" propagation="REQUIRED" />
+		    <tx:method name="add*" propagation="REQUIRED" />
+		    <tx:method name="update*" propagation="REQUIRED" />
+		    <tx:method name="remove*" propagation="REQUIRED" />
+		    <tx:method name="del*" propagation="REQUIRED" />
+		    <tx:method name="import*" propagation="REQUIRED" />
+			<!-- 
+			  指定当前方法以非事务方式执行操作，如果当前存在事务，就把当前事务挂起，等我以非事务的状态运行完，再继续原来的事务。 
+			  查询定义即可
+			  read-only="true"  表示只读
+			 -->
+			<tx:method name="*" propagation="NOT_SUPPORTED" read-only="true" />
 		</tx:attributes>
 	</tx:advice>
 	
