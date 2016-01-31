@@ -26,6 +26,10 @@ public class BaseDaoImpl<T> implements BaseDao<T>{
 		Object object = (Object) getSession().get(clazz, id);
 		getSession().delete(object);
 	}
+	
+	public void delete(T entity){
+		getSession().delete(entity);
+	}
 
 	public T getById(String id) {
 		return (T) getSession().get(clazz, id);
@@ -48,7 +52,7 @@ public class BaseDaoImpl<T> implements BaseDao<T>{
 	public int getTotalCount() {
 		int totalCount = ((Long) getSession()
 				.createQuery("select count(*) from " + clazz.getSimpleName())
-				.list().get(0)).intValue();
+				.uniqueResult()).intValue();
 		return totalCount;
 	}
 
@@ -62,10 +66,6 @@ public class BaseDaoImpl<T> implements BaseDao<T>{
 	}
 
 	public int update(String hql, Object... field) {
-		System.out.println(hql);
-		for (Object obj : field) {
-			System.out.println(obj);
-		}
 		Query query = getSession().createQuery(hql);
 		if (field.length != 0) {
 			for (int i = 0; i < field.length; i++) {
